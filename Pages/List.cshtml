@@ -1,0 +1,88 @@
+﻿@page
+@model BulldogsPortal.Pages.ListModel
+@{
+}
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<div class="text-white" py-2 mb-5">
+    <div class="container">
+        <h1>Attendees</h1>
+    </div>
+</div>
+
+
+@if (Model.RSVPs != null && Model.RSVPs.Any())
+{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="container">
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <td>Callsign</td>
+                        <td>Date</td>
+                        <td>Confirm</td>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var student in Model.RSVPs)
+                    {
+                        <tr class="text-white">
+                            <td>@student.Callsign</td>
+                            <td>@student.Airframe</td>
+                            <td>@student.Confirm</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-between">
+            <button class="btn btn-danger" type="submit" asp-page-handler="Delete">Delete</button>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <td>Callsign</td>
+                        <td>Date</td>
+                        <td>Confirm</td>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var student in Model.RSVPs)
+                    {
+                        <tr class="text-white">
+                            <td>@student.Callsign</td>
+                            <td>@student.Airframe</td>
+                            <td>@student.Confirm</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+}
+
+
+
+else
+{
+    <div class="container">
+        <p>No Sign ups yet!</p>
+    </div>
+}
+}
+               
