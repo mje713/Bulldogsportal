@@ -44,7 +44,9 @@
 
         <div class="mb-3 d-flex justify-content-between">
             <button class="btn btn-danger" type="submit" asp-page-handler="Delete">Delete</button>
+           <a href="/Index"> <button class="btn btn-primary" type="submit">Back Home</button></a>
         </div>
+        
     }
     else
     {
@@ -65,12 +67,16 @@
                         <tr class="text-white">
                             <td>@student.Callsign</td>
                             <td>@student.Airframe</td>
-                            <td>@student.Confirm</td>
 
                         </tr>
                     }
                 </tbody>
             </table>
+        </div>
+        <div class="mb-3 d-flex justify-content-between">
+
+            <a href="/Index"> <button class="btn btn-primary" type="submit">Back Home</button></a>
+            
         </div>
     }
 
@@ -84,5 +90,5 @@ else
         <p>No Sign ups yet!</p>
     </div>
 }
-}
+
                
