@@ -22,7 +22,16 @@ namespace BulldogsPortal.Pages
             RSVPs = rsvpDbContext.RSVPs.ToList();
         }
 
+        public async Task<IActionResult> OnPostDelete()
+        {
+
+            var deleted = await rsvpDbContext.DeleteAsync(RSVP);
+            if (deleted)
+            {
+                return Page;
+            }
 
 
+        }
     }
 }
